@@ -20,11 +20,12 @@ def ping():
 class Item(BaseModel):
     item_id: int
     q: str = None
+    r: str = None
 
 
 @app.post("/items/{item_id}", response_model=Item)
-def read_item(item_id: int, q: str = None):
-    return Item(**{"item_id": item_id, "q": q})
+def read_item(item_id: int, q: str = None, r: str = None):
+    return Item(**{"item_id": item_id, "q": q, "r": r})
 
 
 if __name__ == "__main__":
