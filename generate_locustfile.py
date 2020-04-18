@@ -19,6 +19,10 @@ hypothesis_methods = {
 def generate_route_test_method(
     openapi_path_name: str, openapi_path_dict: dict
 ) -> str:
+    """
+    Assumes:
+    - even sampling of methods
+    """
     http_verb = list(openapi_path_dict.keys())[0]
     method_name = (
         openapi_path_dict[http_verb]["summary"].lower().replace(" ", "_")
